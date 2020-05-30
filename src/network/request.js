@@ -5,7 +5,7 @@ import axios from "axios";
 
 export function request(config) {
   const instance = new axios.create({
-    baseURL: "http://10.10.3.2:8000",
+    baseURL: "http://74.82.214.120:8000",
     timeout: 60000
   });
 
@@ -39,7 +39,7 @@ export function request(config) {
 
 export function fileRequest(config){
   const axiosInstance = new axios.create({
-    baseURL: "http://10.10.3.2:8000",
+    baseURL: "http://74.82.214.120:8000",
     timeout: 30000,
     headers: {'Content-Type': 'multipart/form-data'}
   });
@@ -74,7 +74,7 @@ export function fileRequest(config){
 
 export function certRequest(config){
   const axiosCertReqInstance = new axios.create({
-    baseURL: "http://10.10.3.2:8000",
+    baseURL: "http://74.82.214.120:8000",
     timeout: 600000,
   });
 
@@ -107,7 +107,7 @@ export function certRequest(config){
 
 export function certRevokeRequest(config){
   const axiosCertRevokeReqInstance = new axios.create({
-    baseURL: "http://10.10.3.2:8000",
+    baseURL: "http://174.82.214.120:8000",
     timeout: 600000,
     headers: {'Content-Type': 'application/json'}
   });
