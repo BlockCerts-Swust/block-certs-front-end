@@ -1,5 +1,5 @@
 # 使用超小的node:alpine镜像作为基础镜像编译
-FROM node:alpine
+FROM node
 # 将dist目录下的文件复制到容器dist目录下
 COPY /dist/ /dist/
 # 安装http-server服务器
