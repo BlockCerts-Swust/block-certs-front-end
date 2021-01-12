@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-footer>Copyright © 2020 Blockcerts Signit. All rights reserved.</el-footer>
+    <el-footer>Copyright © {{currentYear}} Blockcerts Signit. All rights reserved.</el-footer>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ export default {
   name: "Footer",
   data() {
     return {};
+  },
+  computed: {
+    currentYear () {
+      return new Date().getFullYear()
+    }
   }
 };
 </script>
