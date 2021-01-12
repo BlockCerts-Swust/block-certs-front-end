@@ -58,23 +58,25 @@
             </el-table-column>
           </template>
           <el-table-column
-          :label="$t('common.operation')" width="260px">
+          :label="$t('common.operation')" width="330px">
           <template slot-scope="scope">
-            <el-button
-              size="mini"
-              @click="getSchCertDetails(scope.$index, scope.row)">{{$t('common.certDetail')}}</el-button>
+            <div id="slotButtons">
               <el-button
-              size="mini"
-              type="success" plain
-              @click="approveStdCert(scope.$index, scope.row)">{{$t('common.certApprove')}}</el-button>
-              <el-button
-              size="mini"
-              type="primary"
-              @click="certRefuse(scope.$index, scope.row)">{{$t('common.Refuse')}}</el-button>
-              <el-button
-              size="mini"
-              type="danger"
-              @click="revokeCert(scope.$index, scope.row)">{{$t('common.Revoke')}}</el-button>
+                size="mini"
+                @click="getSchCertDetails(scope.$index, scope.row)">{{$t('common.certDetail')}}</el-button>
+                <el-button
+                size="mini"
+                type="success" plain
+                @click="approveStdCert(scope.$index, scope.row)">{{$t('common.certApprove')}}</el-button>
+                <el-button
+                size="mini"
+                type="primary"
+                @click="certRefuse(scope.$index, scope.row)">{{$t('common.Refuse')}}</el-button>
+                <el-button
+                size="mini"
+                type="danger"
+                @click="revokeCert(scope.$index, scope.row)">{{$t('common.Revoke')}}</el-button>
+            </div>
           </template>
         </el-table-column>
         </el-table>
@@ -199,12 +201,12 @@ export default {
         ]
        },
       tableLabel: [
-        { label: this.$t('common.certWSID'), prop: "cert_id", width: "320px"},
-        { label: this.$t('common.certTitle'), prop: "certificate_title"},
-        { label: this.$t('common.critNarrative'), prop: "criteria_narrative"},
-        { label: this.$t('common.stdName'), prop: "student_name"},
-        { label: this.$t('common.stdEmail'), prop: "email"},
-        { label: this.$t('common.certStatus'), prop: "statusLab"},
+        { label: this.$t('common.certWSID'), prop: "cert_id", width: "310px"},
+        { label: this.$t('common.certTitle'), prop: "certificate_title", width: "90px"},
+        { label: this.$t('common.critNarrative'), prop: "criteria_narrative", width: "145px"},
+        { label: this.$t('common.stdName'), prop: "student_name", width: "150px"},
+        { label: this.$t('common.stdEmail'), prop: "email", width: "170px"},
+        { label: this.$t('common.certStatus'), prop: "statusLab", width: "80px"},
       ]
     };
   },
@@ -558,6 +560,10 @@ label{
 
 .myBtn{
   margin-top: 1rem;
+}
+
+#slotButtons {
+  width: 320px;
 }
 
 </style>
