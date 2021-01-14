@@ -57,7 +57,7 @@
             <el-table-column
               :key="index"
               :prop="item.prop"
-              :label="item.label">
+              :label="item.label" :width="item.width">
             </el-table-column>
           </template>
           <el-table-column :label="$t('common.operation')">
@@ -111,9 +111,9 @@ export default {
       filteredData: [],
       tableLabel: [
         { label: this.$t('common.certWSID'), prop: "cert_id", width: "320px"},
-        { label: this.$t('common.certTitle'), prop: "certificate_title"},
-        { label: this.$t('common.school'), prop: "school_name"},
-        { label: this.$t('common.certStatus'), prop: "statusLab"},
+        { label: this.$t('common.certTitle'), prop: "certificate_title", width: "260px"},
+        { label: this.$t('common.school'), prop: "school_name", width: "280px"},
+        { label: this.$t('common.certStatus'), prop: "statusLab", width: "130px"},
       ]
     };
   },
@@ -155,6 +155,7 @@ export default {
         this.total = res.data.count;
         console.log("Total certs: ", this.total);
         this.tableData = res.data.results;
+        var truncatedID = ''
         for(let i=0; i < this.tableData.length; i++){
           // Use 0 for Created, 1 for Issued,  2 for Issuing(Pending) and 3 for Failed Issue
           if(this.tableData[i].status==0){
@@ -175,6 +176,9 @@ export default {
           if(this.tableData[i].status==5){
             this.tableData[i].statusLab=this.$t('certstatus.Refused')
           }
+          // Truncate cert_wsid_ of cert id.
+          truncatedID = (this.tableData[i].cert_id).substring(10)
+          this.tableData[i].cert_id = truncatedID
         }
         this.loading = false
         }
