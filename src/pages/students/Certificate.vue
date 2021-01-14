@@ -268,7 +268,8 @@ export default {
       console.log("Getting details for index: ", index, row);
       let certStatusToDisplay = row.statusLab;
       this.$store.commit("set_certDispStatus", certStatusToDisplay);
-      let certIDtoGetDetails = row.cert_id;
+      // Include truncated cert_wsid_ of the cert id.
+      let certIDtoGetDetails = "cert_wsid_"+row.cert_id;
       console.log("CertID to use: ", certIDtoGetDetails)
       this.$router.push(`/students/${certIDtoGetDetails}/CertDetails`);
       // console.log("Cert status is: ", row["certStatus"]);
